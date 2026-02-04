@@ -1,0 +1,1520 @@
+{
+    "ls": {
+        "description": "Liste les fichiers du répertoire.",
+        "exemple": "ls -lh",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "cp": {
+        "description": "Copie un fichier ou un dossier.",
+        "exemple": "cp -r src/ dest/",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "mv": {
+        "description": "Déplace ou renomme un fichier.",
+        "exemple": "mv file.txt /tmp/",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "rm": {
+        "description": "Supprime un fichier ou un dossier.",
+        "exemple": "rm -rf /dossier_test",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "touch": {
+        "description": "Crée un fichier vide ou met à jour la date d'accès.",
+        "exemple": "touch index.html",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "find": {
+        "description": "Recherche des fichiers selon critères.",
+        "exemple": "find . -type f -name '*.log'",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "mkdir": {
+        "description": "Crée un répertoire.",
+        "exemple": "mkdir -p a/b/c",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "rmdir": {
+        "description": "Supprime un répertoire vide.",
+        "exemple": "rmdir dossier_vide",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "stat": {
+        "description": "Affiche les métadonnées détaillées d'un fichier.",
+        "exemple": "stat fichier.sh",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "file": {
+        "description": "Identifie le type réel d'un fichier (mime).",
+        "exemple": "file image.jpg",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "chmod": {
+        "description": "Modifie les permissions (lecture, écriture, exécution).",
+        "exemple": "chmod +x script.py",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "chown": {
+        "description": "Change le propriétaire et le groupe.",
+        "exemple": "chown www-data:www-data /var/www",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "ln": {
+        "description": "Crée un lien symbolique.",
+        "exemple": "ln -s /source /destination",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "locate": {
+        "description": "Recherche rapide via base de données mlocate.",
+        "exemple": "locate .bashrc",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "dd": {
+        "description": "Copie de bas niveau et création d'images disque.",
+        "exemple": "dd if=/dev/sda of=backup.img",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "rsync": {
+        "description": "Synchronisation intelligente de fichiers.",
+        "exemple": "rsync -avz local/ distant:/backup",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "shred": {
+        "description": "Écrase les données pour empêcher la récupération.",
+        "exemple": "shred -n 5 -u secret.txt",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "basename": {
+        "description": "Extrait le nom du fichier d'un chemin complet.",
+        "exemple": "basename /etc/passwd",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "dirname": {
+        "description": "Extrait le chemin du dossier parent.",
+        "exemple": "dirname /etc/passwd",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "realpath": {
+        "description": "Affiche le chemin absolu résolu.",
+        "exemple": "realpath ../mon_fichier",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "chattr": {
+        "description": "Change les attributs étendus (ex: immuable).",
+        "exemple": "sudo chattr +i fichier",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "lsattr": {
+        "description": "Liste les attributs étendus.",
+        "exemple": "lsattr fichier",
+        "categorie": "Fichiers",
+        "icone": "📂"
+    },
+
+
+    "ping": {
+        "description": "Vérifie la latence réseau.",
+        "exemple": "ping -c 4 1.1.1.1",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "curl": {
+        "description": "Outil de transfert de données URL.",
+        "exemple": "curl -X POST -d 'data' url",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "wget": {
+        "description": "Téléchargeur non-interactif.",
+        "exemple": "wget -c http://site.com/iso.zip",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "ssh": {
+        "description": "Client de shell sécurisé à distance.",
+        "exemple": "ssh -i cle.pem user@host",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "scp": {
+        "description": "Transfert de fichiers via SSH.",
+        "exemple": "scp user@host:/file .",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "ip": {
+        "description": "Outil polyvalent de configuration réseau.",
+        "exemple": "ip addr show",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "netstat": {
+        "description": "Statistiques réseau et ports.",
+        "exemple": "netstat -pant",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "ss": {
+        "description": "Utilitaire plus rapide pour les sockets.",
+        "exemple": "ss -tulpn",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "nslookup": {
+        "description": "Résolution DNS simple.",
+        "exemple": "nslookup google.com",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "dig": {
+        "description": "Requêtes DNS avancées.",
+        "exemple": "dig ANY google.com @8.8.8.8",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "traceroute": {
+        "description": "Affiche les sauts de routeurs vers un hôte.",
+        "exemple": "traceroute 8.8.8.8",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "nmap": {
+        "description": "Exploration réseau et audit de sécurité.",
+        "exemple": "nmap -A 192.168.1.0/24",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "tcpdump": {
+        "description": "Analyseur de trafic réseau (sniffer).",
+        "exemple": "tcpdump -i any port 80",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "iptables": {
+        "description": "Filtrage de paquets IP (IPv4).",
+        "exemple": "iptables -L -v",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "nft": {
+        "description": "Nouveau framework de filtrage de paquets.",
+        "exemple": "nft list ruleset",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "nmcli": {
+        "description": "Gestion de NetworkManager en ligne de commande.",
+        "exemple": "nmcli device status",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "ethtool": {
+        "description": "Configure les paramètres de la carte réseau.",
+        "exemple": "ethtool eth0",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "hostnamectl": {
+        "description": "Gère le nom d'hôte du système.",
+        "exemple": "hostnamectl set-hostname serv-linux",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "arp": {
+        "description": "Gère la table de correspondance IP/MAC.",
+        "exemple": "arp -a",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "mtr": {
+        "description": "Combine ping et traceroute en temps réel.",
+        "exemple": "mtr google.com",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "host": {
+        "description": "Recherche DNS rapide.",
+        "exemple": "host 1.1.1.1",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "nc": {
+        "description": "Le couteau suisse du TCP/UDP (Netcat).",
+        "exemple": "nc -zv 127.0.0.1 80",
+        "categorie": "Réseau",
+        "icone": "🔵"
+    },
+
+
+    "top": {
+        "description": "Moniteur de processus système.",
+        "exemple": "top",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "htop": {
+        "description": "Version interactive et colorée de top.",
+        "exemple": "htop",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "ps": {
+        "description": "Instantané des processus en cours.",
+        "exemple": "ps -ef",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "kill": {
+        "description": "Envoie un signal à un processus.",
+        "exemple": "kill -9 1234",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "killall": {
+        "description": "Tue les processus par nom.",
+        "exemple": "killall nginx",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "pkill": {
+        "description": "Tue les processus par motif.",
+        "exemple": "pkill -u www-data",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "df": {
+        "description": "Espace disque libre par partition.",
+        "exemple": "df -hT",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "du": {
+        "description": "Analyse l'occupation disque d'un dossier.",
+        "exemple": "du -sh /var/log",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "free": {
+        "description": "État de la mémoire RAM et du Swap.",
+        "exemple": "free -m -t",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "uname": {
+        "description": "Détails du noyau et de l'architecture.",
+        "exemple": "uname -r",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "uptime": {
+        "description": "Temps depuis le boot et charge moyenne.",
+        "exemple": "uptime",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "systemctl": {
+        "description": "Contrôle les services systemd.",
+        "exemple": "systemctl restart docker",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "journalctl": {
+        "description": "Affiche les journaux du système.",
+        "exemple": "journalctl -u nginx --since today",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "dmesg": {
+        "description": "Affiche le tampon de messages du kernel.",
+        "exemple": "dmesg | grep usb",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "lsblk": {
+        "description": "Liste les disques et partitions en bloc.",
+        "exemple": "lsblk -f",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "lscpu": {
+        "description": "Architecture détaillée du processeur.",
+        "exemple": "lscpu",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "lsusb": {
+        "description": "Liste le matériel branché en USB.",
+        "exemple": "lsusb -v",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "lspci": {
+        "description": "Liste les bus et périphériques PCI.",
+        "exemple": "lspci",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "lshw": {
+        "description": "Inventaire complet du matériel.",
+        "exemple": "sudo lshw -html > config.html",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "lsmod": {
+        "description": "Affiche les modules du noyau chargés.",
+        "exemple": "lsmod",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "modprobe": {
+        "description": "Charge ou décharge un module du noyau.",
+        "exemple": "modprobe vfat",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "mount": {
+        "description": "Monte un périphérique sur un dossier.",
+        "exemple": "mount /dev/sdb1 /mnt",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "umount": {
+        "description": "Démonte un périphérique.",
+        "exemple": "umount /mnt",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "fdisk": {
+        "description": "Outil de partitionnement MBR/GPT.",
+        "exemple": "sudo fdisk -l",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "gdisk": {
+        "description": "Partitionnement GPT pur.",
+        "exemple": "sudo gdisk /dev/sda",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "parted": {
+        "description": "Outil de partitionnement avancé.",
+        "exemple": "parted /dev/sda print",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "crontab": {
+        "description": "Planifie des tâches périodiques.",
+        "exemple": "crontab -l",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "at": {
+        "description": "Planifie une tâche unique à une heure donnée.",
+        "exemple": "echo 'reboot' | at 04:00",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "sysctl": {
+        "description": "Modifie les paramètres du noyau à chaud.",
+        "exemple": "sysctl -a",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "reboot": {
+        "description": "Redémarre proprement la machine.",
+        "exemple": "reboot",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "shutdown": {
+        "description": "Éteint ou programme l'arrêt.",
+        "exemple": "shutdown -h now",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "vmstat": {
+        "description": "Statistiques sur la mémoire virtuelle et CPU.",
+        "exemple": "vmstat 1 5",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "iostat": {
+        "description": "Statistiques sur les entrées/sorties disque.",
+        "exemple": "iostat -xz 2",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "sar": {
+        "description": "Collecte et affiche l'activité système.",
+        "exemple": "sar -u 1",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "strace": {
+        "description": "Trace les appels système d'un programme.",
+        "exemple": "strace ls",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "lsof": {
+        "description": "Liste tous les fichiers ouverts par les processus.",
+        "exemple": "lsof -i :80",
+        "categorie": "Système",
+        "icone": "⚙️"
+    },
+
+
+    "whoami": {
+        "description": "Affiche l'utilisateur actuel.",
+        "exemple": "whoami",
+        "categorie": "Utilisateurs",
+        "icone": "👥"
+    },
+
+
+    "id": {
+        "description": "Affiche les UID, GID et groupes.",
+        "exemple": "id user",
+        "categorie": "Utilisateurs",
+        "icone": "👥"
+    },
+
+
+    "w": {
+        "description": "Qui est connecté et que font-ils ?",
+        "exemple": "w",
+        "categorie": "Utilisateurs",
+        "icone": "👥"
+    },
+
+
+    "who": {
+        "description": "Liste les utilisateurs connectés.",
+        "exemple": "who -u",
+        "categorie": "Utilisateurs",
+        "icone": "👥"
+    },
+
+
+    "last": {
+        "description": "Historique des dernières connexions.",
+        "exemple": "last -n 10",
+        "categorie": "Utilisateurs",
+        "icone": "👥"
+    },
+
+
+    "lastlog": {
+        "description": "Dernière connexion de tous les comptes.",
+        "exemple": "lastlog",
+        "categorie": "Utilisateurs",
+        "icone": "👥"
+    },
+
+
+    "sudo": {
+        "description": "Exécute une commande avec privilèges root.",
+        "exemple": "sudo apt update",
+        "categorie": "Utilisateurs",
+        "icone": "👥"
+    },
+
+
+    "su": {
+        "description": "Bascule vers un autre compte utilisateur.",
+        "exemple": "su - admin",
+        "categorie": "Utilisateurs",
+        "icone": "👥"
+    },
+
+
+    "useradd": {
+        "description": "Crée un nouvel utilisateur (bas niveau).",
+        "exemple": "useradd -m bob",
+        "categorie": "Utilisateurs",
+        "icone": "👥"
+    },
+
+
+    "usermod": {
+        "description": "Modifie les paramètres d'un utilisateur.",
+        "exemple": "usermod -aG sudo bob",
+        "categorie": "Utilisateurs",
+        "icone": "👥"
+    },
+
+
+    "userdel": {
+        "description": "Supprime un utilisateur.",
+        "exemple": "userdel -r bob",
+        "categorie": "Utilisateurs",
+        "icone": "👥"
+    },
+
+
+    "groupadd": {
+        "description": "Crée un nouveau groupe.",
+        "exemple": "groupadd dev",
+        "categorie": "Utilisateurs",
+        "icone": "👥"
+    },
+
+
+    "groupmod": {
+        "description": "Modifie un groupe.",
+        "exemple": "groupmod -n dev_new dev",
+        "categorie": "Utilisateurs",
+        "icone": "👥"
+    },
+
+
+    "groupdel": {
+        "description": "Supprime un groupe.",
+        "exemple": "groupdel dev",
+        "categorie": "Utilisateurs",
+        "icone": "👥"
+    },
+
+
+    "passwd": {
+        "description": "Change le mot de passe d'un utilisateur.",
+        "exemple": "passwd bob",
+        "categorie": "Utilisateurs",
+        "icone": "👥"
+    },
+
+
+    "chage": {
+        "description": "Gère l'expiration des mots de passe.",
+        "exemple": "chage -l bob",
+        "categorie": "Utilisateurs",
+        "icone": "👥"
+    },
+
+
+    "groups": {
+        "description": "Affiche les groupes d'un utilisateur.",
+        "exemple": "groups bob",
+        "categorie": "Utilisateurs",
+        "icone": "👥"
+    },
+
+
+    "visudo": {
+        "description": "Édite le fichier sudoers avec vérification syntaxique.",
+        "exemple": "sudo visudo",
+        "categorie": "Utilisateurs",
+        "icone": "👥"
+    },
+
+
+    "cat": {
+        "description": "Concatène et affiche le contenu d'un fichier.",
+        "exemple": "cat -n file.txt",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "tac": {
+        "description": "Affiche le contenu à l'envers (dernière ligne d'abord).",
+        "exemple": "tac log.txt",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "more": {
+        "description": "Lecteur de texte basique.",
+        "exemple": "more large_file.txt",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "less": {
+        "description": "Lecteur de texte avancé (permet le retour en arrière).",
+        "exemple": "less system.log",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "head": {
+        "description": "Affiche le début d'un fichier.",
+        "exemple": "head -n 20 file.txt",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "tail": {
+        "description": "Affiche la fin d'un fichier.",
+        "exemple": "tail -f /var/log/syslog",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "grep": {
+        "description": "Recherche de motifs via REGEX.",
+        "exemple": "grep -ri 'error' /var/log",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "egrep": {
+        "description": "Grep avec REGEX étendues.",
+        "exemple": "egrep 'warn|error' file.txt",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "sed": {
+        "description": "Éditeur de flux pour filtrage et transformation.",
+        "exemple": "sed 's/old/new/g' file.txt",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "awk": {
+        "description": "Langage de traitement de texte par colonnes.",
+        "exemple": "awk -F: '{print $1}' /etc/passwd",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "cut": {
+        "description": "Supprime ou extrait des sections de lignes.",
+        "exemple": "cut -d',' -f2 data.csv",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "sort": {
+        "description": "Trie les lignes d'un texte.",
+        "exemple": "sort -n data.txt",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "uniq": {
+        "description": "Filtre les lignes en double (doit être trié).",
+        "exemple": "uniq -d file.txt",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "wc": {
+        "description": "Compte les lignes, mots et caractères.",
+        "exemple": "wc -l list.txt",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "tr": {
+        "description": "Traduit ou supprime des caractères.",
+        "exemple": "echo 'hello' | tr '[:lower:]' '[:upper:]'",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "tee": {
+        "description": "Lit l'entrée et écrit dans un fichier ET la sortie standard.",
+        "exemple": "ls | tee output.txt",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "diff": {
+        "description": "Compare deux fichiers ligne à ligne.",
+        "exemple": "diff file1 file2",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "patch": {
+        "description": "Applique un fichier de différences (diff) à un original.",
+        "exemple": "patch original < update.diff",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "paste": {
+        "description": "Fusionne les lignes de plusieurs fichiers.",
+        "exemple": "paste f1 f2",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "join": {
+        "description": "Joint les lignes de deux fichiers sur un champ commun.",
+        "exemple": "join f1 f2",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "rev": {
+        "description": "Inverse chaque ligne de caractère en caractère.",
+        "exemple": "rev file.txt",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "comm": {
+        "description": "Compare deux fichiers triés ligne par ligne.",
+        "exemple": "comm f1 f2",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "nl": {
+        "description": "Numérote les lignes d'un fichier.",
+        "exemple": "nl file.txt",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "strings": {
+        "description": "Extrait les chaînes de texte lisibles d'un binaire.",
+        "exemple": "strings /usr/bin/ls",
+        "categorie": "Textes",
+        "icone": "📝"
+    },
+
+
+    "tar": {
+        "description": "Utilitaire d'archivage (Tape Archiver).",
+        "exemple": "tar -cvzf archive.tar.gz folder/",
+        "categorie": "Archives",
+        "icone": "📦"
+    },
+
+
+    "gzip": {
+        "description": "Compression rapide (format .gz).",
+        "exemple": "gzip file.txt",
+        "categorie": "Archives",
+        "icone": "📦"
+    },
+
+
+    "gunzip": {
+        "description": "Décompresse les fichiers .gz.",
+        "exemple": "gunzip file.gz",
+        "categorie": "Archives",
+        "icone": "📦"
+    },
+
+
+    "bzip2": {
+        "description": "Compression plus lente mais plus forte que gzip.",
+        "exemple": "bzip2 file.txt",
+        "categorie": "Archives",
+        "icone": "📦"
+    },
+
+
+    "bunzip2": {
+        "description": "Décompresse les fichiers .bz2.",
+        "exemple": "bunzip2 file.bz2",
+        "categorie": "Archives",
+        "icone": "📦"
+    },
+
+
+    "xz": {
+        "description": "Très haute compression (format .xz).",
+        "exemple": "xz -z file.txt",
+        "categorie": "Archives",
+        "icone": "📦"
+    },
+
+
+    "unxz": {
+        "description": "Décompresse les fichiers .xz.",
+        "exemple": "unxz file.xz",
+        "categorie": "Archives",
+        "icone": "📦"
+    },
+
+
+    "zip": {
+        "description": "Format de compression universel.",
+        "exemple": "zip -r backup.zip folder/",
+        "categorie": "Archives",
+        "icone": "📦"
+    },
+
+
+    "unzip": {
+        "description": "Décompresse les fichiers .zip.",
+        "exemple": "unzip backup.zip",
+        "categorie": "Archives",
+        "icone": "📦"
+    },
+
+
+    "7z": {
+        "description": "Archiveur 7-Zip à haute compression.",
+        "exemple": "7z a archive.7z folder/",
+        "categorie": "Archives",
+        "icone": "📦"
+    },
+
+
+    "zcat": {
+        "description": "Affiche le contenu d'un texte compressé sans décompresser.",
+        "exemple": "zcat file.gz",
+        "categorie": "Archives",
+        "icone": "📦"
+    },
+
+
+    "git": {
+        "description": "Le cœur de la gestion de version.",
+        "exemple": "git commit -am 'fix'",
+        "categorie": "Développement",
+        "icone": "🛠️"
+    },
+
+
+    "docker": {
+        "description": "Gestion des conteneurs isolés.",
+        "exemple": "docker run -it ubuntu /bin/bash",
+        "categorie": "Développement",
+        "icone": "🛠️"
+    },
+
+
+    "docker-compose": {
+        "description": "Orchestrateur multi-conteneurs simple.",
+        "exemple": "docker-compose up -d",
+        "categorie": "Développement",
+        "icone": "🛠️"
+    },
+
+
+    "kubectl": {
+        "description": "Outil de contrôle pour Kubernetes.",
+        "exemple": "kubectl get pods",
+        "categorie": "Développement",
+        "icone": "🛠️"
+    },
+
+
+    "python3": {
+        "description": "Interpréteur Python 3.",
+        "exemple": "python3 main.py",
+        "categorie": "Développement",
+        "icone": "🛠️"
+    },
+
+
+    "pip3": {
+        "description": "Installeur de paquets Python.",
+        "exemple": "pip3 install django",
+        "categorie": "Développement",
+        "icone": "🛠️"
+    },
+
+
+    "gcc": {
+        "description": "Compilateur C de GNU.",
+        "exemple": "gcc main.c -o program",
+        "categorie": "Développement",
+        "icone": "🛠️"
+    },
+
+
+    "g++": {
+        "description": "Compilateur C++ de GNU.",
+        "exemple": "g++ main.cpp -o app",
+        "categorie": "Développement",
+        "icone": "🛠️"
+    },
+
+
+    "make": {
+        "description": "Automatise la compilation via un Makefile.",
+        "exemple": "make install",
+        "categorie": "Développement",
+        "icone": "🛠️"
+    },
+
+
+    "npm": {
+        "description": "Gestionnaire de paquets Node.js.",
+        "exemple": "npm run dev",
+        "categorie": "Développement",
+        "icone": "🛠️"
+    },
+
+
+    "go": {
+        "description": "Outil de build et run pour langage Go.",
+        "exemple": "go build main.go",
+        "categorie": "Développement",
+        "icone": "🛠️"
+    },
+
+
+    "perl": {
+        "description": "Interpréteur du langage Perl.",
+        "exemple": "perl -e 'print \"hi\"'",
+        "categorie": "Développement",
+        "icone": "🛠️"
+    },
+
+
+    "php": {
+        "description": "Interpréteur PHP en ligne de commande.",
+        "exemple": "php -S localhost:8000",
+        "categorie": "Développement",
+        "icone": "🛠️"
+    },
+
+
+    "rustc": {
+        "description": "Compilateur pour le langage Rust.",
+        "exemple": "rustc main.rs",
+        "categorie": "Développement",
+        "icone": "🛠️"
+    },
+
+
+    "cargo": {
+        "description": "Gestionnaire de paquets Rust.",
+        "exemple": "cargo run",
+        "categorie": "Développement",
+        "icone": "🛠️"
+    },
+
+
+    "apt": {
+        "description": "Interface moderne de gestion de paquets.",
+        "exemple": "sudo apt full-upgrade",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "apt-get": {
+        "description": "Outil historique de gestion de paquets.",
+        "exemple": "sudo apt-get install git",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "apt-cache": {
+        "description": "Recherche dans les paquets disponibles.",
+        "exemple": "apt-cache search nginx",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "dpkg": {
+        "description": "Gestionnaire de paquets bas niveau (fichiers .deb).",
+        "exemple": "sudo dpkg -i package.deb",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "snap": {
+        "description": "Système de paquets universels Canonical.",
+        "exemple": "snap install spotify",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "flatpak": {
+        "description": "Gestionnaire d'applications isolées.",
+        "exemple": "flatpak install flathub org.gimp.GIMP",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "history": {
+        "description": "Affiche l'historique des commandes entrées.",
+        "exemple": "history 50",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "alias": {
+        "description": "Définit des alias personnalisés.",
+        "exemple": "alias update='sudo apt update'",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "unalias": {
+        "description": "Supprime un alias.",
+        "exemple": "unalias ll",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "export": {
+        "description": "Définit une variable d'environnement.",
+        "exemple": "export PATH=$PATH:/bin",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "echo": {
+        "description": "Imprime du texte ou des variables.",
+        "exemple": "echo $USER",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "printf": {
+        "description": "Formate et imprime des données.",
+        "exemple": "printf \"Name: %s\n\" \"Bob\"",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "clear": {
+        "description": "Nettoie l'écran du terminal.",
+        "exemple": "clear",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "man": {
+        "description": "Affiche le manuel d'une commande.",
+        "exemple": "man 5 crontab",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "tldr": {
+        "description": "Exemples simplifiés de commandes (communauté).",
+        "exemple": "tldr tar",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "whatis": {
+        "description": "Description courte d'une commande.",
+        "exemple": "whatis ls",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "whereis": {
+        "description": "Localise binaire, source et manuel.",
+        "exemple": "whereis bash",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "which": {
+        "description": "Affiche le chemin du binaire exécuté.",
+        "exemple": "which python",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "type": {
+        "description": "Indique comment une commande sera interprétée.",
+        "exemple": "type ls",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "exit": {
+        "description": "Quitte le shell ou le terminal actuel.",
+        "exemple": "exit",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "watch": {
+        "description": "Exécute une commande de façon répétée.",
+        "exemple": "watch -n 1 date",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "sleep": {
+        "description": "Met en pause le shell pendant N secondes.",
+        "exemple": "sleep 10",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "xargs": {
+        "description": "Construit des commandes à partir de l'entrée standard.",
+        "exemple": "ls *.log | xargs rm",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "screen": {
+        "description": "Multiplexeur de terminaux (sessions persistantes).",
+        "exemple": "screen -S session1",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "tmux": {
+        "description": "Alternative moderne à screen.",
+        "exemple": "tmux new -s dev",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "nohup": {
+        "description": "Lance une commande immunisée contre la déconnexion.",
+        "exemple": "nohup ./script.sh &",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "env": {
+        "description": "Affiche les variables d'environnement.",
+        "exemple": "env | grep PATH",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "bc": {
+        "description": "Calculatrice en ligne de commande.",
+        "exemple": "echo '10+5' | bc",
+        "categorie": "Général",
+        "icone": "💡"
+    },
+
+
+    "ufw": {
+        "description": "Pare-feu simple (Debian/Ubuntu).",
+        "exemple": "sudo ufw allow 80/tcp",
+        "categorie": "Sécurité",
+        "icone": "🛡️"
+    },
+
+
+    "fail2ban-client": {
+        "description": "Contrôle de l'outil de bannissement IP.",
+        "exemple": "fail2ban-client status sshd",
+        "categorie": "Sécurité",
+        "icone": "🛡️"
+    },
+
+
+    "openssl": {
+        "description": "Outil de gestion SSL/TLS et crypto.",
+        "exemple": "openssl s_client -connect host:443",
+        "categorie": "Sécurité",
+        "icone": "🛡️"
+    },
+
+
+    "gpg": {
+        "description": "Implémentation de OpenPGP pour chiffrement.",
+        "exemple": "gpg --encrypt file.txt",
+        "categorie": "Sécurité",
+        "icone": "🛡️"
+    },
+
+
+    "lynis": {
+        "description": "Outil d'audit de sécurité système.",
+        "exemple": "lynis audit system",
+        "categorie": "Sécurité",
+        "icone": "🛡️"
+    },
+
+
+    "chkrootkit": {
+        "description": "Vérification locale de rootkits.",
+        "exemple": "sudo chkrootkit",
+        "categorie": "Sécurité",
+        "icone": "🛡️"
+    },
+
+
+    "rkhunter": {
+        "description": "Rootkit Hunter (audit de sécurité).",
+        "exemple": "sudo rkhunter --check",
+        "categorie": "Sécurité",
+        "icone": "🛡️"
+    },
+
+
+    "mysql": {
+        "description": "Client interactif MariaDB/MySQL.",
+        "exemple": "mysql -u root -p",
+        "categorie": "Bases de données",
+        "icone": "🗄️"
+    },
+
+
+    "mysqldump": {
+        "description": "Sauvegarde des bases de données SQL.",
+        "exemple": "mysqldump db_name > backup.sql",
+        "categorie": "Bases de données",
+        "icone": "🗄️"
+    },
+
+
+    "psql": {
+        "description": "Client interactif PostgreSQL.",
+        "exemple": "psql -d database_name",
+        "categorie": "Bases de données",
+        "icone": "🗄️"
+    },
+
+
+    "redis-cli": {
+        "description": "Client en ligne de commande pour Redis.",
+        "exemple": "redis-cli monitor",
+        "categorie": "Bases de données",
+        "icone": "🗄️"
+    },
+
+
+    "mongosh": {
+        "description": "Shell interactif pour MongoDB.",
+        "exemple": "mongosh --port 27017",
+        "categorie": "Bases de données",
+        "icone": "🗄️"
+    },
+
+
+    "sqlite3": {
+        "description": "Interface pour bases de données SQLite.",
+        "exemple": "sqlite3 base.db",
+        "categorie": "Bases de données",
+        "icone": "🗄️"
+    },
+
+
+    "influx": {
+        "description": "Shell pour InfluxDB (Séries temporelles).",
+        "exemple": "influx",
+        "categorie": "Bases de données",
+        "icone": "🗄️"
+    }
+}
