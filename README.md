@@ -32,6 +32,8 @@ L'écran de connexion permet de personnaliser l'interface et de générer votre 
 
 🔍 Consultation des Commandes
 Affichage détaillé avec description complète et simulation de rendu terminal. 
+
+
 <img width="1052" height="832" alt="FenetrePrincipale" src="https://github.com/user-attachments/assets/3d310f56-f34d-4f6e-a0fc-cf2e8ffeab35" />
 
 📝 Quiz et Paramètres
@@ -39,16 +41,19 @@ Testez vos réflexes et gérez vos préférences visuelles en un clic.
 
 <img width="1044" height="827" alt="Quizz" src="https://github.com/user-attachments/assets/3095e286-eb0b-4b15-ae10-736f3eec4f65" />
 
+
 <img width="448" height="423" alt="Réglage" src="https://github.com/user-attachments/assets/1e35a2c0-dbb0-44f4-9057-3dfd511f26b4" />
 
 Et la possibilité de supprimer vos commandes:
+
+
 <img width="395" height="525" alt="Supprimer" src="https://github.com/user-attachments/assets/97cea38a-a4c3-4700-99af-ac5d185a8a46" />
 
 
 ## 🚀 Installation (version développeur)
 Bash
 # Cloner le dépôt
-git clone https://github.com/ton-utilisateur/Commandes_Linux.git
+git clone https://github.com/ASR85/Commandes_Linux.git
 
 # Accéder au dossier
 cd Commandes_Linux
