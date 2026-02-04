@@ -1,48 +1,60 @@
-🐧 NOTES DE VERSION - LINUX PRO v1.0
-📝 Présentation
-Linux Pro est une application de bureau interactive conçue pour accompagner les utilisateurs dans l'apprentissage et la maîtrise des commandes Linux. Alliant utilité et pédagogie, elle offre une interface moderne pour centraliser vos connaissances techniques.
+🐧 Linux Pro
+Linux Pro est une application graphique intuitive conçue pour apprendre et centraliser les commandes Linux. Elle permet de :
 
-🚀 Fonctionnalités Principales
-🔍 Gestionnaire de Commandes
-Base de Données Intégrée : Accès instantané à une large bibliothèque de commandes système fondamentales.
+Explorer une bibliothèque de commandes système fondamentales
 
-Recherche Intelligente : Filtrage en temps réel par nom de commande ou par catégorie pour trouver l'information en un clin d'œil.
+Personnaliser sa propre base de données de commandes
 
-Détails Complets : Chaque commande affiche sa description, sa catégorie et une simulation de rendu en terminal.
+Tester ses connaissances via un système de Quiz interactif
 
-🎮 Mode Quiz (Apprentissage Ludique)
-Testez vos Connaissances : Un module de quiz interactif pour vous entraîner à identifier la bonne commande à partir d'une description.
+Basculer entre un mode Clair et un mode Sombre pour plus de confort
 
-Score Dynamique : Système de notation avec messages personnalisés selon vos performances pour encourager la progression.
+Développée avec ❤️ en Python et Tkinter, elle est idéale pour les étudiants, les débutants sur Linux ou les administrateurs souhaitant un aide-mémoire personnalisé.
 
-🛠️ Personnalisation Totale
-Ajout de Commandes : Créez votre propre base de données personnelle en ajoutant vos commandes favorites.
+ ## ✨ Fonctionnalités
+📚 Dictionnaire de commandes : Recherche instantanée par nom ou catégorie.
 
-Système d'Icônes : Personnalisez vos catégories avec une grille d'émojis tech intégrée.
+✍️ Gestion personnalisée : Ajoutez vos propres commandes avec des icônes tech.
 
-Édition & Suppression : Gérez vos propres entrées sans toucher aux commandes système protégées.
+🛡️ Sécurité système : Distinction entre commandes "Système" (protégées) et "Personnelles" (modifiables).
 
-🎨 Interface & Ergonomie (UX/UI)
-Modes d'Affichage : Bascule instantanée entre le Mode Clair et le Mode Sombre pour un confort visuel optimal.
+🎮 Quiz interactif : Système de questions/réponses avec calcul de score et feedback.
 
-Design Moderne : Interface épurée utilisant la police Segoe UI et des éléments graphiques soignés (cartes, bordures colorées).
+🌓 Interface adaptative : Thèmes Clair et Sombre intégrés avec sauvegarde automatique.
 
-Centrage Automatique : La fenêtre s'adapte intelligemment à la résolution de votre écran.
+🚀 Autoconfig : Création automatique d'un raccourci sur le bureau au premier lancement.
 
-📦 Détails Techniques & Installation
-Développement : Développé en Python avec la bibliothèque graphique Tkinter.
+## 🖥️ Interface
+🏠 Accueil et Connexion
+L'écran de connexion permet de personnaliser l'interface et de générer votre identifiant simulateur.
 
-Portabilité : Exécutable autonome (.exe) généré avec PyInstaller, incluant toutes les dépendances.
+<img width="397" height="479" alt="FenetreCon - Copie" src="https://github.com/user-attachments/assets/a9f7d85d-945e-4d99-b31a-651054c60244" />
 
-Zéro Configuration : Création automatique d'un raccourci sur le bureau au premier lancement pour un accès facilité.
+🔍 Consultation des Commandes
+Affichage détaillé avec description complète et simulation de rendu terminal. 
+<img width="1052" height="832" alt="FenetrePrincipale" src="https://github.com/user-attachments/assets/3d310f56-f34d-4f6e-a0fc-cf2e8ffeab35" />
 
-Sauvegarde Locale : Utilisation de fichiers JSON pour une persistance des données et de vos préférences de thème.
+📝 Quiz et Paramètres
+Testez vos réflexes et gérez vos préférences visuelles en un clic. 
 
-🛠 Installation pour les Développeurs
-Pour lancer le projet à partir des sources :
+<img width="1044" height="827" alt="Quizz" src="https://github.com/user-attachments/assets/3095e286-eb0b-4b15-ae10-736f3eec4f65" />
 
-Cloner le dépôt GitHub.
+<img width="448" height="423" alt="Réglage" src="https://github.com/user-attachments/assets/1e35a2c0-dbb0-44f4-9057-3dfd511f26b4" />
 
-Installer les dépendances : pip install winshell pypiwin32.
+Et la possibilité de supprimer vos commandes:
+<img width="395" height="525" alt="Supprimer" src="https://github.com/user-attachments/assets/97cea38a-a4c3-4700-99af-ac5d185a8a46" />
 
-Lancer main.py.
+
+## 🚀 Installation (version développeur)
+Bash
+# Cloner le dépôt
+git clone https://github.com/ton-utilisateur/Commandes_Linux.git
+
+# Accéder au dossier
+cd Commandes_Linux
+
+# Installer les dépendances (nécessaire pour le raccourci bureau)
+pip install winshell pypiwin32
+
+# Lancer l'application
+python main.py
