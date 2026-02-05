@@ -1,0 +1,42 @@
+{
+    "Fichiers": {
+        "icone": "📂",
+        "couleur": "#E8F5E9"
+    },
+    "Réseau": {
+        "icone": "🔵",
+        "couleur": "#DBEAFE"
+    },
+    "Système": {
+        "icone": "⚙️",
+        "couleur": "#FEF3F2"
+    },
+    "Utilisateurs": {
+        "icone": "👥",
+        "couleur": "#F3E8FF"
+    },
+    "Textes": {
+        "icone": "📝",
+        "couleur": "#E0F2FE"
+    },
+    "Archives": {
+        "icone": "📦",
+        "couleur": "#FFF7ED"
+    },
+    "Développement": {
+        "icone": "🛠️",
+        "couleur": "#ECFDF5"
+    },
+    "Sécurité": {
+        "icone": "🛡️",
+        "couleur": "#FEF2F2"
+    },
+    "Bases de données": {
+        "icone": "🗄️",
+        "couleur": "#F0FDF4"
+    },
+    "Général": {
+        "icone": "💡",
+        "couleur": "#FEFCE8"
+    }
+}
