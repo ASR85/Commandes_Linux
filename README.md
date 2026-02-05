@@ -1,7 +1,7 @@
 # 🐧 Linux Pro
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
-[![Platform](https://img.shields.io/badge/platform-windows%20%7C%20linux-lightgrey.svg)]()
+[![Platform](https://img.shields.io/badge/platform-Windows-blue.svg)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **Linux Pro** est une application graphique intuitive conçue pour apprendre et centraliser les commandes Linux. Elle permet de :
@@ -10,6 +10,9 @@
 * **Personnaliser** sa propre base de données de commandes.
 * **Tester** ses connaissances via un système de Quiz interactif.
 * **Basculer** entre un mode Clair et un mode Sombre pour plus de confort.
+
+> [!IMPORTANT]
+> Cette application est actuellement développée et optimisée pour un environnement **Windows**.
 
 Développée avec ❤️ en **Python** et **Tkinter**, elle est idéale pour les étudiants, les débutants sur Linux ou les administrateurs souhaitant un aide-mémoire personnalisé.
 
@@ -56,16 +59,4 @@ Testez vos réflexes et gérez vos préférences visuelles en un clic.
 ### 🗑️ Gestion des données
 Possibilité de supprimer vos commandes personnelles pour garder votre base propre :
 
-<img width="395" height="525" alt="Supprimer" src="https://github.com/user-attachments/assets/97cea38a-a4c3-4700-99af-ac5d185a8a46" />
-
----
-
-## 🚀 Installation (version développeur)
-
-Pour installer et lancer le projet localement, exécutez les commandes suivantes dans votre terminal :
-
-
-1. **Cloner le dépôt GitHub**
-
-```bash
-git clone [https://github.com/ASR85/Commandes_Linux.git](https://github.com/ASR85/Commandes_Linux.git)
+<img width="395" height="525" alt="Supprimer" src="
