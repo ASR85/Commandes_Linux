@@ -59,4 +59,16 @@ Testez vos réflexes et gérez vos préférences visuelles en un clic.
 ### 🗑️ Gestion des données
 Possibilité de supprimer vos commandes personnelles pour garder votre base propre :
 
-<img width="395" height="525" alt="Supprimer" src="
+<img width="395" height="525" alt="Supprimer" src="https://github.com/user-attachments/assets/97cea38a-a4c3-4700-99af-ac5d185a8a46" />
+
+---
+
+## 🚀 Installation (Windows)
+
+Pour installer et lancer le projet localement sur Windows, exécutez les commandes suivantes :
+
+
+1. **Cloner le dépôt GitHub**
+
+```bash
+git clone [https://github.com/ASR85/Commandes_Linux.git](https://github.com/ASR85/Commandes_Linux.git)
