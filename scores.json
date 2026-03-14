@@ -1,0 +1,23 @@
+[
+    {
+        "date_complete": "06/02/2026 15:23:04",
+        "quizz_type": "🚀 Défi Rapide (5)",
+        "score": 0,
+        "total": 5,
+        "pourcentage": "0%"
+    },
+    {
+        "date_complete": "06/02/2026 15:23:23",
+        "quizz_type": "🎯 Entraînement (10)",
+        "score": 3,
+        "total": 10,
+        "pourcentage": "30%"
+    },
+    {
+        "date_complete": "07/02/2026 19:27:57",
+        "quizz_type": "🚀 Défi Rapide (5)",
+        "score": 1,
+        "total": 5,
+        "pourcentage": "20%"
+    }
+]
