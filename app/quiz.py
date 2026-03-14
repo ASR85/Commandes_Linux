@@ -38,7 +38,7 @@ def lancer_quiz_pre(self):
     ).pack(pady=10)
 
     config_quiz = [
-        (5, "🚀 Défi Rapide (5)", "#10B981"),
+        (5,  "🚀 Défi Rapide (5)",   "#10B981"),
         (10, "🎯 Entraînement (10)", "#3B82F6"),
         (15, "🛡️ Mode Expert (15)", "#8B5CF6"),
         (20, "🔥 Marathon Linux (20)", "#EF4444"),
@@ -82,13 +82,11 @@ def lancer_quiz_action(self, nb, quizz_type):
         autres = [c for c in self.donnees.keys() if c != bonne_reponse]
         options = random.sample(autres, 3) + [bonne_reponse]
         random.shuffle(options)
-        self.questions.append(
-            {
-                "d": self.donnees[bonne_reponse]["description"],
-                "o": options,
-                "a": bonne_reponse,
-            }
-        )
+        self.questions.append({
+            "d": self.donnees[bonne_reponse]["description"],
+            "o": options,
+            "a": bonne_reponse,
+        })
 
     self.current_quizz_type = quizz_type
     prochaine_question(self)
@@ -119,13 +117,7 @@ def prochaine_question(self):
         # En-tête score (fixe, non scrollable)
         frame_score = Frame(self.cadre_quiz, bg=self.c_card)
         frame_score.pack(pady=15, fill="x")
-        Label(
-            frame_score,
-            text=msg,
-            font=("Segoe UI", 16, "bold"),
-            bg=self.c_card,
-            fg=self.c_accent,
-        ).pack()
+        Label(frame_score, text=msg, font=("Segoe UI", 16, "bold"), bg=self.c_card, fg=self.c_accent).pack()
         Label(
             frame_score,
             text=f"Score : {self.score_q} / {total}  –  {pourcent}%",
@@ -149,9 +141,7 @@ def prochaine_question(self):
         canvas = Canvas(cadre_scroll, bg=self.c_card, highlightthickness=0)
         scrollbar = ttk.Scrollbar(cadre_scroll, orient="vertical", command=canvas.yview)
         inner = Frame(canvas, bg=self.c_card)
-        inner.bind(
-            "<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
-        )
+        inner.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
         canvas.create_window((0, 0), window=inner, anchor="nw")
         canvas.configure(yscrollcommand=scrollbar.set)
         scrollbar.pack(side="right", fill="y")
@@ -202,26 +192,16 @@ def prochaine_question(self):
         frame_boutons = Frame(self.cadre_quiz, bg=self.c_card)
         frame_boutons.pack(pady=15, fill="x")
         Button(
-            frame_boutons,
-            text="🔄 RECOMMENCER",
+            frame_boutons, text="🔄 RECOMMENCER",
             command=lambda: lancer_quiz_pre(self),
-            bg="#10B981",
-            fg="white",
-            font=("Segoe UI", 10, "bold"),
-            pady=12,
-            padx=40,
-            relief="flat",
+            bg="#10B981", fg="white", font=("Segoe UI", 10, "bold"),
+            pady=12, padx=40, relief="flat",
         ).pack(side="left", padx=20)
         Button(
-            frame_boutons,
-            text="🚪 QUITTER LE QUIZ",
+            frame_boutons, text="🚪 QUITTER LE QUIZ",
             command=lambda: quitter_quiz(self),
-            bg="#EF4444",
-            fg="white",
-            font=("Segoe UI", 10, "bold"),
-            pady=12,
-            padx=40,
-            relief="flat",
+            bg="#EF4444", fg="white", font=("Segoe UI", 10, "bold"),
+            pady=12, padx=40, relief="flat",
         ).pack(side="right", padx=20)
         return
 

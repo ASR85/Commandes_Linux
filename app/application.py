@@ -4,30 +4,37 @@ import json
 import os
 import sys
 
-from data.data import obtenir_commandes_completes, obtenir_commandes_perso, ajouter_commande, supprimer_commande, ressource_path
-from app.dialogs import demander_profil, ouvrir_aide, ouvrir_parametres, ouvrir_ajout, ouvrir_suppression, ouvrir_statistiques
+from data.data import (
+    obtenir_commandes_completes, obtenir_commandes_perso,
+    ajouter_commande, supprimer_commande,
+    ressource_path, F_CONFIG,
+)
+from app.dialogs import (
+    demander_profil, ouvrir_aide, ouvrir_parametres,
+    ouvrir_ajout, ouvrir_suppression, ouvrir_statistiques,
+)
 from app.quiz import lancer_quiz_pre, quitter_quiz
-from app.theme_utils import appliquer_theme, basculer_theme, reinitialiser_application, nettoyer_recherche, centrer_fenetre
+from app.theme_utils import (
+    appliquer_theme, basculer_theme, reinitialiser_application,
+    nettoyer_recherche, centrer_fenetre,
+)
 
-ROW_H = 28  # hauteur d'une ligne du tableau
+ROW_H = 28  # hauteur d'une ligne du tableau canvas
 
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Tableau 100 % Canvas — emojis couleur garantis sur Windows ET Linux
+# ─────────────────────────────────────────────────────────────────────────────
 
 class TableauCanvas(tk.Frame):
-    """
-    Tableau 100% Canvas — remplace ttk.Treeview.
-    Avantage clé : les emojis s'affichent en couleur sur Windows ET Linux
-    car le rendu passe par le moteur de texte Tk (Pillow-free), pas GTK/Win32.
-    Colonnes : icône  |  commande  |  catégorie
-    """
-
     def __init__(self, parent, app, **kwargs):
         super().__init__(parent, bg=parent["bg"])
-        self._app     = app
-        self._lignes  = []        # liste de dicts {cmd, cat, ico, bg, fg}
-        self._sel_idx = None      # index sélectionné
+        self._app      = app
+        self._lignes   = []
+        self._sel_idx  = None
         self._sort_rev = {"cmd": False, "cat": False}
 
-        # ── En-têtes cliquables ──────────────────────────────
+        # En-têtes
         hdr = tk.Frame(self, bg="#312E81")
         hdr.pack(fill="x")
         self._hdr = hdr
@@ -50,7 +57,7 @@ class TableauCanvas(tk.Frame):
         )
         self._btn_cat.pack(side="left", fill="x", expand=True)
 
-        # ── Canvas + scrollbar ───────────────────────────────
+        # Canvas + scrollbar
         body = tk.Frame(self)
         body.pack(fill="both", expand=True)
 
@@ -63,10 +70,10 @@ class TableauCanvas(tk.Frame):
         self._canvas.bind("<Configure>",  lambda e: self._draw())
         self._canvas.bind("<Button-1>",   self._on_click)
         self._canvas.bind("<MouseWheel>", self._on_wheel)
-        self._canvas.bind("<Button-4>",   self._on_wheel)   # Linux scroll up
-        self._canvas.bind("<Button-5>",   self._on_wheel)   # Linux scroll down
+        self._canvas.bind("<Button-4>",   self._on_wheel)
+        self._canvas.bind("<Button-5>",   self._on_wheel)
 
-    # ── API publique ─────────────────────────────────────────
+    # ── API publique ──────────────────────────────────────────
 
     def set_lignes(self, lignes):
         self._lignes  = lignes
@@ -98,47 +105,31 @@ class TableauCanvas(tk.Frame):
         c.delete("all")
 
         w       = c.winfo_width() or 390
-        ico_w   = 28   # largeur réservée à l'icône
-        cmd_w   = 220  # largeur colonne commande
+        ico_w   = 28
+        cmd_w   = 220
         sep_x   = ico_w + cmd_w
         total_h = max(len(self._lignes) * ROW_H, 1)
         c.configure(scrollregion=(0, 0, w, total_h))
 
         font_normal = ("Segoe UI", 10)
-        font_emoji  = ("Segoe UI", 13)   # légèrement plus grand → emoji plus net
+        font_emoji  = ("Segoe UI", 13)
 
         for i, row in enumerate(self._lignes):
-            y0  = i * ROW_H
-            y1  = y0 + ROW_H
-            yc  = y0 + ROW_H // 2
+            y0 = i * ROW_H
+            y1 = y0 + ROW_H
+            yc = y0 + ROW_H // 2
 
             bg = app.c_accent if i == self._sel_idx else row["bg"]
             fg = "white"      if i == self._sel_idx else row["fg"]
 
-            # Fond coloré de la ligne
             c.create_rectangle(0, y0, w, y1, fill=bg, outline="")
-
-            # Séparateur bas de ligne
             c.create_line(0, y1 - 1, w, y1 - 1, fill=app.c_border)
-
-            # Icône emoji (rendu natif Tk → couleur garantie)
-            c.create_text(ico_w // 2 + 2, yc, text=row["ico"],
-                          font=font_emoji, fill=fg, anchor="center")
-
-            # Séparateur vertical icône/cmd
+            c.create_text(ico_w // 2 + 2, yc, text=row["ico"], font=font_emoji,  fill=fg, anchor="center")
             c.create_line(ico_w, y0, ico_w, y1, fill=app.c_border)
-
-            # Nom commande
-            c.create_text(ico_w + 8, yc, text=row["cmd"],
-                          font=font_normal, fill=fg, anchor="w")
-
-            # Séparateur vertical cmd/cat
+            c.create_text(ico_w + 8,      yc, text=row["cmd"], font=font_normal, fill=fg, anchor="w")
             c.create_line(sep_x, y0, sep_x, y1, fill=app.c_border)
-
-            # Catégorie (centrée dans la colonne restante)
             cat_cx = sep_x + (w - sep_x) // 2
-            c.create_text(cat_cx, yc, text=row["cat"],
-                          font=font_normal, fill=fg, anchor="center")
+            c.create_text(cat_cx, yc, text=row["cat"], font=font_normal, fill=fg, anchor="center")
 
     # ── Événements ────────────────────────────────────────────
 
@@ -172,7 +163,11 @@ class ApplicationLinux:
         except Exception:
             pass
 
-        self.config_file = "config.json"
+        # F_CONFIG est le chemin correct (runtime_path) dans data.py
+        # On l'utilise partout pour la cohérence exe/dev
+        from data.data import F_CONFIG
+        self.config_file = F_CONFIG
+
         self.utilisateur = self.charger_profil()
         if self.utilisateur is None:
             self.root.destroy()
@@ -234,13 +229,13 @@ class ApplicationLinux:
         # Barre bas
         self.bas_page = tk.Frame(self.root, pady=15, highlightthickness=1)
         self.bas_page.pack(fill="x", side="bottom")
-        btn_f = ("Segoe UI", 9, "bold")
-        tk.Button(self.bas_page, text="🎯 QUIZ",         bg="#10B981", fg="white", font=btn_f, padx=20, pady=8, relief="flat", command=lambda: lancer_quiz_pre(self)).pack(side="left", padx=20)
-        tk.Button(self.bas_page, text="💡 AIDE",         bg="#6B7280", fg="white", font=btn_f, padx=15, pady=8, relief="flat", command=lambda: ouvrir_aide(self)).pack(side="left", padx=5)
-        tk.Button(self.bas_page, text="⚙️ PARAMÈTRES",  bg="#4B5563", fg="white", font=btn_f, padx=15, pady=8, relief="flat", command=lambda: ouvrir_parametres(self)).pack(side="left", padx=5)
-        tk.Button(self.bas_page, text="📊 STATISTIQUES", bg="#3B82F6", fg="white", font=btn_f, padx=15, pady=8, relief="flat", command=lambda: ouvrir_statistiques(self)).pack(side="left", padx=5)
-        tk.Button(self.bas_page, text="➕ AJOUTER",      bg="#6366F1", fg="white", font=btn_f, padx=15, pady=8, relief="flat", command=lambda: ouvrir_ajout(self)).pack(side="right", padx=10)
-        tk.Button(self.bas_page, text="🗑️ SUPPRIMER",   bg="#EF4444", fg="white", font=btn_f, padx=15, pady=8, relief="flat", command=lambda: ouvrir_suppression(self)).pack(side="right", padx=10)
+        bf = ("Segoe UI", 9, "bold")
+        tk.Button(self.bas_page, text="🎯 QUIZ",          bg="#10B981", fg="white", font=bf, padx=20, pady=8, relief="flat", command=lambda: lancer_quiz_pre(self)).pack(side="left", padx=20)
+        tk.Button(self.bas_page, text="💡 AIDE",          bg="#6B7280", fg="white", font=bf, padx=15, pady=8, relief="flat", command=lambda: ouvrir_aide(self)).pack(side="left", padx=5)
+        tk.Button(self.bas_page, text="⚙️ PARAMÈTRES",   bg="#4B5563", fg="white", font=bf, padx=15, pady=8, relief="flat", command=lambda: ouvrir_parametres(self)).pack(side="left", padx=5)
+        tk.Button(self.bas_page, text="📊 STATISTIQUES",  bg="#3B82F6", fg="white", font=bf, padx=15, pady=8, relief="flat", command=lambda: ouvrir_statistiques(self)).pack(side="left", padx=5)
+        tk.Button(self.bas_page, text="➕ AJOUTER",       bg="#6366F1", fg="white", font=bf, padx=15, pady=8, relief="flat", command=lambda: ouvrir_ajout(self)).pack(side="right", padx=10)
+        tk.Button(self.bas_page, text="🗑️ SUPPRIMER",    bg="#EF4444", fg="white", font=bf, padx=15, pady=8, relief="flat", command=lambda: ouvrir_suppression(self)).pack(side="right", padx=10)
 
         # Recherche
         self.zone_recherche = tk.Frame(self.root, pady=15)
@@ -259,7 +254,7 @@ class ApplicationLinux:
         self.corps = tk.Frame(self.root)
         self.corps.pack(fill="both", expand=True, padx=30, pady=10)
 
-        # Tableau canvas (gauche)
+        # Tableau (gauche)
         self.cadre_liste = tk.Frame(self.corps, highlightthickness=1)
         self.cadre_liste.pack(side="left", fill="both")
         self.tableau = TableauCanvas(self.cadre_liste, app=self)
@@ -268,17 +263,20 @@ class ApplicationLinux:
         # Détails (droite)
         self.cadre_details = tk.Frame(self.corps, highlightthickness=1, padx=25, pady=25)
         self.cadre_details.pack(side="right", fill="both", expand=True, padx=(25, 0))
-        self.zone_affichage = tk.Text(self.cadre_details, font=("Segoe UI", 11), relief="flat", wrap="word", state="disabled")
+        self.zone_affichage = tk.Text(
+            self.cadre_details, font=("Segoe UI", 11),
+            relief="flat", wrap="word", state="disabled",
+        )
         self.zone_affichage.pack(fill="both", expand=True)
         self.cadre_quiz = tk.Frame(self.cadre_details)
 
-    # ── Données / tableau ─────────────────────────────────────
+    # ── Données ───────────────────────────────────────────────
 
     def actualiser_tableau(self, recherche=""):
         if recherche == "Rechercher une commande ou une catégorie...":
             recherche = ""
 
-        data     = obtenir_commandes_completes()
+        data = obtenir_commandes_completes()
         self.donnees  = data["commandes"]
         self.couleurs = data["couleurs"]
         self.icones.update(data.get("icones", {}))
@@ -300,12 +298,12 @@ class ApplicationLinux:
     # ── Affichage détail ──────────────────────────────────────
 
     def afficher_details_depuis_canvas(self, nom_cmd):
-        """Appelé par TableauCanvas lors d'un clic sur une ligne."""
+        """Appelé par TableauCanvas sur clic."""
         if not self.quiz_en_cours:
             self._afficher_details_nom(nom_cmd)
 
-    # Alias conservé pour le quiz (quitter_quiz appelle self.afficher_details(None))
     def afficher_details(self, _event):
+        """Alias conservé pour quitter_quiz()."""
         self._afficher_details_nom(None)
 
     def _afficher_details_nom(self, nom_extrait):
@@ -336,15 +334,15 @@ class ApplicationLinux:
         self.zone_affichage.tag_config("terminal", font=("Consolas", 12, "bold"), background="#000000", foreground="#10B981")
 
         ico = info.get("icone", "📂")
-        self.zone_affichage.insert(tk.END, f"{ico} {nom_reel.upper()}\n", "titre")
-        self.zone_affichage.insert(tk.END, f"\n📂 CATÉGORIE : {info.get('categorie', 'N/A')}\n", "label")
-        self.zone_affichage.insert(tk.END, "\n📌 DESCRIPTION\n", "label")
+        self.zone_affichage.insert(tk.END, f"{ico} {nom_reel.upper()}\n",                       "titre")
+        self.zone_affichage.insert(tk.END, f"\n📂 CATÉGORIE : {info.get('categorie','N/A')}\n", "label")
+        self.zone_affichage.insert(tk.END, "\n📌 DESCRIPTION\n",                                "label")
         self.zone_affichage.insert(tk.END, f"{info.get('description', '')}\n\n")
-        self.zone_affichage.insert(tk.END, "💻 TERMINAL SIMULATION\n", "label")
+        self.zone_affichage.insert(tk.END, "💻 TERMINAL SIMULATION\n",                          "label")
         self.zone_affichage.insert(tk.END, "\n")
 
-        u     = self.utilisateur.get("prenom", "user").lower()
-        n     = self.utilisateur.get("nom", "linux").lower()
+        u  = self.utilisateur.get("prenom", "user").lower()
+        n  = self.utilisateur.get("nom",    "linux").lower()
         prompt = f" {u}.{n}@linux:~$ {info.get('exemple', '')} "
         self.zone_affichage.insert(tk.END, f"{prompt}\n", "terminal")
         self.zone_affichage.config(state="disabled")

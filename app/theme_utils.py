@@ -6,15 +6,15 @@ import tkinter as tk
 
 def appliquer_theme(self):
     if self.mode_sombre:
-        self.c_bg    = "#111827"
-        self.c_fg    = "#F9FAFB"
-        self.c_card  = "#1F2937"
+        self.c_bg     = "#111827"
+        self.c_fg     = "#F9FAFB"
+        self.c_card   = "#1F2937"
         self.c_accent = "#4F46E5"
         self.c_border = "#374151"
     else:
-        self.c_bg    = "#F3F4F6"
-        self.c_fg    = "#111827"
-        self.c_card  = "#FFFFFF"
+        self.c_bg     = "#F3F4F6"
+        self.c_fg     = "#111827"
+        self.c_card   = "#FFFFFF"
         self.c_accent = "#312E81"
         self.c_border = "#D1D5DB"
 
@@ -28,17 +28,12 @@ def appliquer_theme(self):
     self.cadre_saisie.configure(bg=self.c_card, highlightbackground=self.c_border)
     self.lbl_loupe.configure(bg=self.c_card, fg="#64748B")
     self.champ_recherche.configure(bg=self.c_card, fg=self.c_fg, insertbackground=self.c_fg)
-
-    self.style.configure("Treeview", background=self.c_card, foreground=self.c_fg, fieldbackground=self.c_card)
-    self.style.configure("Treeview.Heading", background=self.c_accent, foreground="white")
-    self.style.map("Treeview", background=[("selected", self.c_accent)], foreground=[("selected", "white")])
-
     self.cadre_details.configure(bg=self.c_card, highlightbackground=self.c_border)
     self.zone_affichage.configure(bg=self.c_card, foreground=self.c_fg)
     self.cadre_liste.configure(bg=self.c_card)
     self.bas_page.configure(bg=self.c_card, highlightbackground=self.c_border)
 
-    # Mise à jour du tableau Canvas custom
+    # Tableau Canvas custom — thème + rechargement des lignes
     if hasattr(self, "tableau"):
         self.tableau.appliquer_theme(self.c_accent, self.c_border, self.c_card)
         if hasattr(self, "donnees"):
@@ -46,39 +41,46 @@ def appliquer_theme(self):
 
 
 def basculer_theme(self):
+    from data.data import F_CONFIG
     self.mode_sombre = not self.mode_sombre
     self.utilisateur["mode_sombre"] = self.mode_sombre
-    with open(self.config_file, "w", encoding="utf-8") as f:
-        json.dump(self.utilisateur, f)
+    with open(F_CONFIG, "w", encoding="utf-8") as f:
+        json.dump(self.utilisateur, f, ensure_ascii=False, indent=4)
     appliquer_theme(self)
 
 
 def reinitialiser_application(self):
     from tkinter import messagebox
+    from data.data import F_CONFIG, F_SCORES, F_CATEGORIES, F_COMMANDS_PER
     if not messagebox.askyesno("Réinitialisation", "Effacer votre profil et redémarrer ?"):
         return
 
-    files_to_delete = [self.config_file, "scores.json", "categories.json"]
-    for file in files_to_delete:
-        if os.path.exists(file):
+    # Supprimer tous les fichiers runtime utilisateur (chemins corrects via runtime_path)
+    for fichier in [F_CONFIG, F_SCORES, F_CATEGORIES, F_COMMANDS_PER]:
+        if os.path.exists(fichier):
             try:
-                os.remove(file)
+                os.remove(fichier)
             except OSError:
                 pass
 
     self.root.destroy()
 
-    # Relance cross-platform (fonctionne aussi bien sur Windows que Linux)
-    python = sys.executable
-    script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "main.py")
-    script = os.path.normpath(script)
-    os.execv(python, [python, script])
+    # Relance cross-platform : fonctionne en dev ET dans l'exe PyInstaller
+    if getattr(sys, "frozen", False):
+        # Mode exe : relancer l'exécutable directement
+        os.execv(sys.executable, [sys.executable])
+    else:
+        # Mode dev : relancer main.py via l'interpréteur Python
+        script = os.path.normpath(
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "main.py")
+        )
+        os.execv(sys.executable, [sys.executable, script])
 
 
 def centrer_fenetre(self, f, largeur, hauteur):
     l, h = int(largeur), int(hauteur)
     f.update_idletasks()
-    x = (f.winfo_screenwidth() // 2) - (l // 2)
+    x = (f.winfo_screenwidth()  // 2) - (l // 2)
     y = (f.winfo_screenheight() // 2) - (h // 2)
     f.geometry(f"{l}x{h}+{x}+{y}")
 
