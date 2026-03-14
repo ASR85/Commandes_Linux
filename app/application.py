@@ -57,8 +57,15 @@ class ApplicationLinux:
         self.style = ttk.Style()
         self.style.theme_use("clam")
 
+        # Création de l'interface AVANT le thème
         self.construire_interface()
+
+        # Appliquer le thème AVANT de configurer le style Treeview
         appliquer_theme(self)
+
+        # Maintenant self.c_accent existe
+        self.style.configure("Treeview", rowheight=25, font=("Segoe UI", 10))
+        self.style.configure("Treeview.Heading", font=("Segoe UI", 11, "bold"), background=self.c_accent, foreground="white")
 
         self.actualiser_tableau()
         self.ordre_tri["cmd"] = True
@@ -164,42 +171,24 @@ class ApplicationLinux:
         self.donnees = data_totale["commandes"]
         self.couleurs = data_totale["couleurs"]
 
-        # Nettoyage complet du tableau
-        for item in self.tableau.get_children():
-            self.tableau.delete(item)
+        for ligne in self.tableau.get_children():
+            self.tableau.delete(ligne)
 
-        # Tri alphabétique des commandes
         noms_tries = sorted(self.donnees.keys())
 
         for nom in noms_tries:
             info = self.donnees[nom]
             cat = info.get("categorie", "Général")
-
             if recherche.lower() in nom.lower() or recherche.lower() in cat.lower():
                 tag = f"cat_{cat.replace(' ', '_').lower()}"
-                # Insertion avec tag pour couleur
-                iid = self.tableau.insert("", tk.END, values=(nom.strip().upper(), cat), tags=(tag,))
+                self.tableau.insert("", tk.END, values=(nom.strip().upper(), cat), tags=(tag,))
 
-        # Application des couleurs APRÈS insertion (clé du fix)
-        self.tableau.tag_configure("Treeview", background=self.c_card)  # fond par défaut
         self.configurer_couleurs_categories()
 
-        # Forcer rafraîchissement visuel
-        self.tableau.update_idletasks()
-
     def configurer_couleurs_categories(self):
         for cat, couleur in self.couleurs.items():
             tag = f"cat_{cat.replace(' ', '_').lower()}"
-            # Couleur de fond normale pour la ligne
             self.tableau.tag_configure(tag, background=couleur)
-            # Couleur quand sélectionnée (plus visible)
-            self.tableau.tag_configure(tag + "_selected", background=self.c_accent, foreground="white")
-
-    def configurer_couleurs_categories(self):
-        for cat, couleur in self.couleurs.items():
-            tag = f"cat_{cat.replace(' ', '_').lower()}"
-            self.style.configure(tag, background=couleur)
-            self.style.map(tag, background=[("selected", self.c_accent)], foreground=[("selected", "white")])
 
     def trier_colonne(self, col):
         self.ordre_tri[col] = not self.ordre_tri[col]
